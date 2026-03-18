@@ -22,21 +22,42 @@
 
 ---
 
+## 🎨 Generated Problem UI Preview
+
+Every synced solution automatically receives a beautifully crafted `README.md` that flawlessly tracks your performance.
+
+> # 1A. Theatre Square
+> 
+> | Field | Value |
+> |---|---|
+> | **Contest** | [1](https://codeforces.com/contest/1) |
+> | **Problem** | [1A — Theatre Square](https://codeforces.com/contest/1/problem/A) |
+> | **Rating** | 1000 |
+> | **Tags** | math |
+> | **Verdict** | ✅ Accepted |
+> | **Language** | C++23 (GCC 14-64) |
+> | **Runtime** | 31 ms |
+> | **Memory** | 100 KB |
+> 
+> | Item | Value |
+> |---|---|
+> | **Time Limit** | 1 second |
+> | **Memory Limit** | 256 megabytes |
+
+---
+
 ## 📁 Repository Structure
 
 ```text
 your-repo/
 ├── 800/                        # Rating-based categorization
-│   ├── 1A/                     # Problem folder
-│   │   ├── README.md           # Scraped problem statement
-│   │   └── 1A.cpp              # Accepted source code
-│   └── 71A/
-│       ├── README.md
-│       └── 71A.py
+│   ├── 4A.md                   # Scraped problem statement
+│   └── 4A.cpp                  # Accepted source code
 ├── 1200/
-│   └── 1100C/
-│       ├── README.md
-│       └── 1100C.java
+│   ├── 1100C.md
+│   └── 1100C.java
+└── 2200C.py                    # Unrated/Gym code (at root)
+└── 2200C.md                    # Unrated/Gym statement (at root)
 ```
 
 ---
