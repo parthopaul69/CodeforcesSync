@@ -1,44 +1,42 @@
-<h1 align="center">⚡ CodeforcesSync</h1>
+<div align="center">
+  <h1>⚡ CodeforcesSync</h1>
+  <p><b>A professional-grade automated synchronization tool for competitive programmers.</b></p>
+</div>
 
-<p align="center">
-  <b>Automated, seamless synchronization of accepted Codeforces submissions to GitHub.</b>
-</p>
+<hr />
 
----
+## 🌟 Executive Summary
 
-## 🚀 Overview
+**CodeforcesSync** is a high-performance browser extension (Manifest V3) compatible with Google Chrome and Microsoft Edge. It bridges the gap between competitive programming and version control by automatically synchronizing every "Accepted" Codeforces submission to a designated GitHub repository. 
 
-**CodeforcesSync** is a professional-grade browser extension for Chrome and Microsoft Edge designed for competitive programmers. It eliminates the manual effort of maintaining a repository of solved problems by automatically detecting, formatting, and pushing every `Accepted` solution to a GitHub repository of your choice.
-
-With CodeforcesSync, you can focus on solving problems while the extension handles your documentation, organization, and version control automatically.
-
----
-
-## ✨ Key Features
-
-- 🛠 **Zero-Config Sync** — Once authenticated, every successful submission is pushed to GitHub within ~10 seconds.
-- 📁 **Intelligent Hierarchy** — Submissions are automatically sorted into folders by **Problem Rating** (e.g., `800/`, `1200/`, `2400/`) for easy navigation.
-- 📝 **Rich Problem Manifests** — Every problem folder includes a generated `README.md` containing:
-  - Full problem statement scraping (Markdown-formatted).
-  - Time and Memory limits.
-  - Formatted Input/Output specifications.
-  - Sample tests and explanations.
-- 💻 **Syntax Fidelity** — Full support for over 15 programming languages with perfect preservation of source code formatting and C++ `#include` headers.
-- ⚡ **Gym Problem Support** — Seamlessly detects and syncs problems from Codeforces Gym contests using dedicated fetching logic.
-- 🔒 **Privacycentric Architecture** — Your GitHub Personal Access Token (PAT) is stored exclusively in your browser's local storage. No data is transmitted to third-party servers.
+Designed for scalability and organization, it categorizes solutions by problem rating, generates rich metadata, and handles edge cases like Gym contests and various programming languages with clinical precision.
 
 ---
 
-## 📁 Repository Structure
+## ✨ Primary Features
 
-Your repository is automatically maintained in a clean, professional hierarchy:
+- ✅ **Autonomous Synchronization** — Zero-click operation. After initial setup, every accepted solution is pushed to GitHub within seconds.
+- 📂 **Rating-Driven Hierarchy** — Problems are strictly categorized by their official Codeforces rating (`800/`, `1200/`, `3500/`, etc.).
+- 🗒️ **Dynamic Documentation** — Automatically generates a `README.md` for every problem folder, featuring:
+  - Markdown-formatted problem statements.
+  - Runtime and memory usage metrics.
+  - Sample test cases with input/output blocks.
+- 🔍 **Gym & Educational Support** — Specialized logic to handle Gym contests and unrated problems seamlessly via `/gym/` URL redirection.
+- 🛡️ **Encryption & Privacy** — GitHub Personal Access Tokens are stored locally using browser-level encryption (`chrome.storage.local`).
+- 🚀 **Polyglot Support** — Intelligent detection and extension mapping for 15+ programming languages.
+
+---
+
+## 🏗️ Project Architecture
+
+CodeforcesSync utilizes a non-intrusive background service worker architecture to ensure stability and battery efficiency.
 
 ```text
 your-repo/
 ├── 800/                        # Rating-based categorization
-│   ├── 1A/                     # Problem-specific folder
-│   │   ├── README.md           # Problem statement and metadata
-│   │   └── 1A.cpp              # Your accepted source code
+│   ├── 1A/                     # Problem-specific unique folder
+│   │   ├── README.md           # Scraped problem statement, limits, and links
+│   │   └── 1A.cpp              # Formatted source code (Preserves headers)
 │   └── 71A/
 │       ├── README.md
 │       └── 71A.py
@@ -46,7 +44,7 @@ your-repo/
 │   └── 1100C/
 │       ├── README.md
 │       └── 1100C.java
-└── unrated/                    # For Gym or unrated problems
+└── unrated/                    # Fallback for Gym contests or beta problems
     └── 2200A/
         ├── README.md
         └── 2200A.cpp
@@ -54,45 +52,61 @@ your-repo/
 
 ---
 
-## ⚙️ Professional Setup
+## ⚙️ Deployment & Setup Guide
 
-### 1. Repository Creation
-Create a new, empty repository on GitHub (e.g., `Codeforces`). It is recommended to leave the repository empty for the first sync.
+### Phase 1: GitHub Repository Initialization
+1. Create a **Public** or **Private** repository at [github.com/new](https://github.com/new).
+2. Note your repository name (e.g., `Codeforces`). **Do not use the full URL.**
 
-### 2. Authentication (GitHub PAT)
-Generate a **Personal Access Token (PAT)** with the `repo` scope at [GitHub Settings](https://github.com/settings/tokens/new?scopes=repo&description=CodeforcesSync). For security, set a reasonable expiration or store your token in a password manager.
+### Phase 2: Generating Authentication
+1. Navigate to your [GitHub Developer Settings](https://github.com/settings/tokens/new?scopes=repo&description=CodeforcesSync).
+2. Set the expiration to **No expiration** for permanent sync.
+3. Select the **`repo`** scope (Full control of private/public repositories).
+4. **Copy the generated Personal Access Token (PAT)** immediately.
 
-### 3. Extension Installation
-1. Open your browser's extensions page (`chrome://extensions` or `edge://extensions`).
-2. Enable **Developer Mode**.
-3. Use **Load Unpacked** to select the extension folder.
-4. Access the **Settings** ⚙️ from the extension popup.
-5. Provide your Codeforces handle, GitHub username, repository name, and the PAT.
-6. Click **Save & Test Connection** to verify end-to-end connectivity.
-
----
-
-## 🔐 Security & Implementation
-
-CodeforcesSync operates as a background service worker using **Manifest V3** standards. It polls the Codeforces API for status updates and uses the GitHub REST API for atomic file updates.
-
-- **Storage**: Authentication tokens are encrypted by the browser and stored in `chrome.storage.local`.
-- **Integrity**: Each commit includes performance metrics (Runtime/Memory) in the message for future reference.
-- **Reliability**: Robust error handling ensures that intermittent connectivity issues do not result in duplicate commits or lost data.
+### Phase 3: Extension Configuration
+1. Access `chrome://extensions` or `edge://extensions` in your browser.
+2. Toggle **Developer Mode** in the top-right corner.
+3. Select **Load Unpacked** and navigate to this project's directory.
+4. Open the extension popup from the toolbar and select **Settings** ⚙️.
+5. Provide your Codeforces Handle, GitHub Username, Repository Name, and PAT.
+6. Click **Save & Test Connection**. A confirmation notification will appear upon success.
 
 ---
 
-## 🤝 Contributing & Credit
+## 🔐 Security & Privacy Standards
 
-The project was developed with the goal of empowering the competitive programming community. Contributions, bug reports, and feature requests are welcome via Pull Requests or Issues.
+CodeforcesSync is built with a **Private-by-Default** philosophy:
+- **No Third-Party Servers**: Communications are strictly peer-to-peer (Codeforces API ↔ Browser ↔ GitHub API).
+- **Token Security**: Your Personal Access Token is never exposed in logs or transmitted as plain text. 
+- **Permissions**: The extension only requests minimum necessary permissions (`storage`, `alarms`, `notifications`).
 
-**Project Lead:**
+---
+
+## 🛠️ Performance & Maintenance
+
+- **Polling Frequency**: Every 60 seconds (optimized for browser resource consumption).
+- **Verification**: Each commit contains the submission ID in the message to prevent duplication.
+- **Support**: For bugs or feature requests, please open an issue on the GitHub repository.
+
+---
+
+## 🤝 Maintenance & Credit
+
+This project is actively maintained to ensure compatibility with evolving browser and Codeforces API standards.
+
+**Lead Developer:**
 - [parthopaul69](https://github.com/parthopaul69)
 
 ---
 
-## 📄 License
+## 📄 Licensing
 
-© 2006-2026 Partho Paul (parthopaul69). All rights reserved.
+CodeforcesSync is released under the **MIT License**.
 
-<p align="center">Made with ❤️ for competitive programmers.</p>
+© 2026 Partho. All rights reserved.
+
+<hr />
+<div align="center">
+  <sub>Developed for the competitive programming community. ✨</sub>
+</div>
