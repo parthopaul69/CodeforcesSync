@@ -80,8 +80,8 @@ Follow these steps carefully to ensure a seamless connection between Codeforces 
 6. **Copy the token immediately**: Once you leave the page, you won't be able to see it again.
 
 ### Step 3: Install the Extension
-1. Download or clone this project folder to your local computer.
-2. Open your browser and go to `chrome://extensions` (Chrome) or `edge://extensions` (Edge).
+1. Download this project folder from the release to your local computer.
+2. Unzip it, then open your browser and go to `chrome://extensions` (Chrome) or `edge://extensions` (Edge).
 3. Enable **Developer Mode** (toggle in the top-right corner).
 4. Click **Load Unpacked**.
 5. Select the `CodeforcesSync` project folder.
