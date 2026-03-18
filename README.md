@@ -44,10 +44,6 @@ your-repo/
 │   └── 1100C/
 │       ├── README.md
 │       └── 1100C.java
-└── unrated/                    # Fallback for Gym contests or beta problems
-    └── 2200A/
-        ├── README.md
-        └── 2200A.cpp
 ```
 
 ---
@@ -102,9 +98,7 @@ This project is actively maintained to ensure compatibility with evolving browse
 
 ## 📄 Licensing
 
-CodeforcesSync is released under the **MIT License**.
-
-© 2026 Partho. All rights reserved.
+Copyright (c) 2026 Partho. All rights reserved.
 
 <hr />
 <div align="center">
