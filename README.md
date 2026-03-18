@@ -1,42 +1,35 @@
 <div align="center">
   <h1>⚡ CodeforcesSync</h1>
-  <p><b>A professional-grade automated synchronization tool for competitive programmers.</b></p>
+  <p><b>Automated synchronization of your accepted Codeforces submissions directly to GitHub.</b></p>
 </div>
 
 <hr />
 
-## 🌟 Executive Summary
+## 🌟 Overview
 
-**CodeforcesSync** is a high-performance browser extension (Manifest V3) compatible with Google Chrome and Microsoft Edge. It bridges the gap between competitive programming and version control by automatically synchronizing every "Accepted" Codeforces submission to a designated GitHub repository. 
-
-Designed for scalability and organization, it categorizes solutions by problem rating, generates rich metadata, and handles edge cases like Gym contests and various programming languages with clinical precision.
+**CodeforcesSync** is a professional browser extension for Chrome and Edge that monitors your Codeforces activity and automatically pushes every `Accepted` solution to a GitHub repository of your choice. It organizes your solutions by rating and generates a comprehensive `README.md` for each problem.
 
 ---
 
-## ✨ Primary Features
+## ✨ Features
 
-- ✅ **Autonomous Synchronization** — Zero-click operation. After initial setup, every accepted solution is pushed to GitHub within seconds.
-- 📂 **Rating-Driven Hierarchy** — Problems are strictly categorized by their official Codeforces rating (`800/`, `1200/`, `3500/`, etc.).
-- 🗒️ **Dynamic Documentation** — Automatically generates a `README.md` for every problem folder, featuring:
-  - Markdown-formatted problem statements.
-  - Runtime and memory usage metrics.
-  - Sample test cases with input/output blocks.
-- 🔍 **Gym & Educational Support** — Specialized logic to handle Gym contests and unrated problems seamlessly via `/gym/` URL redirection.
-- 🛡️ **Encryption & Privacy** — GitHub Personal Access Tokens are stored locally using browser-level encryption (`chrome.storage.local`).
-- 🚀 **Polyglot Support** — Intelligent detection and extension mapping for 15+ programming languages.
+- **Autonomous Sync** — Background service worker syncs within seconds of an accepted verdict.
+- **Rating Categorization** — Automatic folder organization by Codeforces rating (e.g., `800/`, `1200/`).
+- **Rich Documentation** — Problem statements, time/memory limits, and sample test cases included in each folder.
+- **Header Preservation** — Correctly handles C++ `#include` statements and supports 15+ languages.
+- **Gym Support** — Specialized logic for Gym and unrated problems.
+- **Local Privacy** — Your authentication tokens are stored only in your browser.
 
 ---
 
-## 🏗️ Project Architecture
-
-CodeforcesSync utilizes a non-intrusive background service worker architecture to ensure stability and battery efficiency.
+## 📁 Repository Structure
 
 ```text
 your-repo/
 ├── 800/                        # Rating-based categorization
-│   ├── 1A/                     # Problem-specific unique folder
-│   │   ├── README.md           # Scraped problem statement, limits, and links
-│   │   └── 1A.cpp              # Formatted source code (Preserves headers)
+│   ├── 1A/                     # Problem folder
+│   │   ├── README.md           # Scraped problem statement
+│   │   └── 1A.cpp              # Accepted source code
 │   └── 71A/
 │       ├── README.md
 │       └── 71A.py
@@ -48,59 +41,61 @@ your-repo/
 
 ---
 
-## ⚙️ Deployment & Setup Guide
+## ⚙️ Detailed Setup Instructions
 
-### Phase 1: GitHub Repository Initialization
-1. Create a **Public** or **Private** repository at [github.com/new](https://github.com/new).
-2. Note your repository name (e.g., `Codeforces`). **Do not use the full URL.**
+Follow these steps carefully to ensure a seamless connection between Codeforces and GitHub.
 
-### Phase 2: Generating Authentication
-1. Navigate to your [GitHub Developer Settings](https://github.com/settings/tokens/new?scopes=repo&description=CodeforcesSync).
-2. Set the expiration to **No expiration** for permanent sync.
-3. Select the **`repo`** scope (Full control of private/public repositories).
-4. **Copy the generated Personal Access Token (PAT)** immediately.
+### Step 1: Initialize Your GitHub Repository
+1. Log in to [GitHub](https://github.com/).
+2. Create a new repository (e.g., named `Codeforces`).
+3. **Public or Private**: You can choose either.
+4. **Important**: Keep the repository empty. Do not initialize with a README or License yet.
 
-### Phase 3: Extension Configuration
-1. Access `chrome://extensions` or `edge://extensions` in your browser.
-2. Toggle **Developer Mode** in the top-right corner.
-3. Select **Load Unpacked** and navigate to this project's directory.
-4. Open the extension popup from the toolbar and select **Settings** ⚙️.
-5. Provide your Codeforces Handle, GitHub Username, Repository Name, and PAT.
-6. Click **Save & Test Connection**. A confirmation notification will appear upon success.
+### Step 2: Generate a GitHub Personal Access Token (PAT)
+1. Navigate to: [GitHub Developer Settings](https://github.com/settings/tokens/new?scopes=repo&description=CodeforcesSync).
+2. **Note**: Name it `CodeforcesSync`.
+3. **Expiration**: Select `No expiration` to avoid re-configuring the extension later.
+4. **Select Scopes**: Check only the box for **`repo`** (this allows the extension to push code to your repositories).
+5. Scroll down and click **Generate token**.
+6. **Copy the token immediately**: Once you leave the page, you won't be able to see it again.
+
+### Step 3: Install the Extension
+1. Download or clone this project folder to your local computer.
+2. Open your browser and go to `chrome://extensions` (Chrome) or `edge://extensions` (Edge).
+3. Enable **Developer Mode** (toggle in the top-right corner).
+4. Click **Load Unpacked**.
+5. Select the `CodeforcesSync` project folder.
+6. **Pin the extension**: Click the puzzle icon 🧩 in the toolbar and click the pin icon next to CodeforcesSync.
+
+### Step 4: Configure Extension Options
+1. Click the **CodeforcesSync** icon in your browser toolbar.
+2. Click the **Settings** ⚙️ icon.
+3. Fill in the following accurately:
+
+| Option | What to enter |
+|---|---|
+| **Codeforces Handle** | Your exact CF username (e.g., `tourist`). |
+| **GitHub Username** | Your GitHub handle (e.g., `parthopaul69`). |
+| **Repository Name** | The name you chose in Step 1 (e.g., `Codeforces`). **Do not enter the full URL.** |
+| **Personal Access Token** | The `ghp_...` token you copied in Step 2. |
+
+4. Click **Save & Test Connection**.
+5. You should see a success notification: ✅ `Configuration saved and verified!`.
+
+### Step 5: Test the Sync
+Go to any Codeforces problem and submit a solution. Once the verdict changes to **Accepted**, your code will appear on GitHub within ~10 seconds.
 
 ---
 
-## 🔐 Security & Privacy Standards
+## 🤝 Credit
 
-CodeforcesSync is built with a **Private-by-Default** philosophy:
-- **No Third-Party Servers**: Communications are strictly peer-to-peer (Codeforces API ↔ Browser ↔ GitHub API).
-- **Token Security**: Your Personal Access Token is never exposed in logs or transmitted as plain text. 
-- **Permissions**: The extension only requests minimum necessary permissions (`storage`, `alarms`, `notifications`).
-
----
-
-## 🛠️ Performance & Maintenance
-
-- **Polling Frequency**: Every 60 seconds (optimized for browser resource consumption).
-- **Verification**: Each commit contains the submission ID in the message to prevent duplication.
-- **Support**: For bugs or feature requests, please open an issue on the GitHub repository.
-
----
-
-## 🤝 Maintenance & Credit
-
-This project is actively maintained to ensure compatibility with evolving browser and Codeforces API standards.
-
-**Lead Developer:**
+**Created & Maintained by:**
 - [parthopaul69](https://github.com/parthopaul69)
 
 ---
 
-## 📄 Licensing
+## 📄 License
 
 Copyright (c) 2026 Partho. All rights reserved.
 
-<hr />
-<div align="center">
-  <sub>Developed for the competitive programming community. ✨</sub>
-</div>
+<p align="center">Made with ❤️ for competitive programmers.</p>
