@@ -31,8 +31,8 @@ Every synced solution automatically receives a beautifully crafted `README.md` t
 > 
 > | Field | Value |
 > |---|---|
-> | **Contest** | [1](https://codeforces.com/contest/1) |
-> | **Problem** | [1A — Theatre Square](https://codeforces.com/contest/1/problem/A) |
+> | **Contest** | [1] |
+> | **Problem** | [1A — Theatre Square] |
 > | **Rating** | 1000 |
 > | **Tags** | math |
 > | **Verdict** | ✅ Accepted |
