@@ -1,5 +1,6 @@
 <div align="center">
   <h1>⚡ CodeforcesSync</h1>
+  <img src="icons/icon128.png" width="128" alt="CodeforcesSync Logo" />
   <p><b>Automated synchronization of your accepted Codeforces submissions directly to GitHub.</b></p>
 </div>
 
@@ -119,4 +120,4 @@ Go to any Codeforces problem and submit a solution. Once the verdict changes to 
 
 Copyright (c) 2026 Partho. All rights reserved.
 
-<p align="center">Made for competitive programmers to save their codes.</p>
+<p align="center">Made with ❤️ for competitive programmers.</p>
