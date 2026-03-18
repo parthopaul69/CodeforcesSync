@@ -57,8 +57,6 @@ your-repo/
 ├── 1200/
 │   ├── 1100C.md
 │   └── 1100C.java
-└── 2200C.py                    # Unrated/Gym code (at root)
-└── 2200C.md                    # Unrated/Gym statement (at root)
 ```
 
 ---
