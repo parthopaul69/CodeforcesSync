@@ -118,4 +118,4 @@ Go to any Codeforces problem and submit a solution. Once the verdict changes to 
 
 Copyright (c) 2026 Partho. All rights reserved.
 
-<p align="center">Made for competitive programmers to save their codes🐸</p>
+<p align="center">Made for competitive programmers🐸</p>
